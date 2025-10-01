@@ -38,21 +38,17 @@ Understanding kafka.Message Structure In producer.go, the kafka.Message struct s
 
 
 ```bash
-//Value Only (Most Common)
 
+# Value Only (Most Common)
 kafka.Message{ Value: []byte("Hello Kafka"), }
 
-
-//Key and Value (Used for Partitioning)
-
+# Key and Value (Used for Partitioning)
 kafka.Message{ Key: []byte("user123"), Value: []byte("Hello Kafka"), }
 
-//Tombstone Record (Key with Nil Value)
-
+# Tombstone Record (Key with Nil Value)
 kafka.Message{ Key: []byte("user123"), Value: nil, }
 
-//Key, Value, and Headers (For Metadata)
-
+# Key, Value, and Headers (For Metadata)
 kafka.Message{ Key: []byte("order123"), Value: []byte("Order created"), Headers: []kafka.Header{ {Key: "correlationId", Value: []byte("abc-123")}, }, }
 ```
 
