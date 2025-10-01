@@ -1,85 +1,62 @@
-#Hello Kafka Tutorial (Go + Confluent Kafka)
+# Hello_kafka
 
+Prerequisites Go (version 1.16 or higher) Docker Confluent CLI (optional but recommended for local development) Install Dependencies Install the Confluent Kafka Go client:
 
-Prerequisites
-Go (version 1.16 or higher)
-Docker
-Confluent CLI (optional but recommended for local development)
-Install Dependencies
-Install the Confluent Kafka Go client:
-
-bash
-
+```bash
 go get github.com/confluentinc/confluent-kafka-go/v2/kafka
+```
 
-Start Kafka Locally with Docker
-Make sure Docker is installed and running on your system.
+## Start Kafka Locally with Docker Make sure Docker is installed and running on your system.
 
-If you are using the Confluent CLI, start a local Kafka cluster and create a topic:
+```bash
+ confluent local kafka start
 
-bash
-
-confluent local kafka start
-confluent local kafka topic create messages
-
+ confluent local kafka topic create messages
+```
 Important: The topic name messages must match the topic referenced in both producer.go and consumer.go.
 
-If you are not using the Confluent CLI, you can use any local Kafka setup (e.g., docker-compose with ZooKeeper and Kafka) as long as the broker is accessible at localhost:9092.
 
-Run the Producer
-The producer sends messages to the messages Kafka topic.
 
-Build and run the producer:
+#### Run the Producer The producer sends messages to the messages Kafka topic.
 
-bash
-
+```bash
 go build -o out/produce producer.go
 ./out/produce
-The producer will send a sample message to the topic and exit.
+```
+##### The producer will send a sample message to the topic and exit.
 
-Run the Consumer
-The consumer reads messages from the messages Kafka topic.
 
-Build and run the consumer:
+#### Run the Consumer The consumer reads messages from the messages Kafka topic.
 
-bash
-
+```bash
 go build -o out/consumer consumer.go
 ./out/consumer
-The consumer will run continuously and print each received message to the console. Press Ctrl+C to stop it.
+```
+##### The consumer will run continuously and print each received message to the console. Press Ctrl+C to stop it.
 
-Understanding kafka.Message Structure
-In producer.go, the kafka.Message struct supports several configurations depending on your use case:
-
-1. Value Only (Most Common)
-
-kafka.Message{
-    Value: []byte("Hello Kafka"),
-}
+Understanding kafka.Message Structure In producer.go, the kafka.Message struct supports several configurations depending on your use case:
 
 
-2. Key and Value (Used for Partitioning)
+```bash
+//Value Only (Most Common)
 
-kafka.Message{
-    Key:   []byte("user123"),
-    Value: []byte("Hello Kafka"),
-}
+kafka.Message{ Value: []byte("Hello Kafka"), }
 
 
-3. Tombstone Record (Key with Nil Value)
+//Key and Value (Used for Partitioning)
 
-kafka.Message{
-    Key:   []byte("user123"),
-    Value: nil,
-}
+kafka.Message{ Key: []byte("user123"), Value: []byte("Hello Kafka"), }
 
+//Tombstone Record (Key with Nil Value)
 
-4. Key, Value, and Headers (For Metadata)
+kafka.Message{ Key: []byte("user123"), Value: nil, }
 
-kafka.Message{
-    Key:   []byte("order123"),
-    Value: []byte("Order created"),
-    Headers: []kafka.Header{
-        {Key: "correlationId", Value: []byte("abc-123")},
-    },
-}
+//Key, Value, and Headers (For Metadata)
+
+kafka.Message{ Key: []byte("order123"), Value: []byte("Order created"), Headers: []kafka.Header{ {Key: "correlationId", Value: []byte("abc-123")}, }, }
+```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
