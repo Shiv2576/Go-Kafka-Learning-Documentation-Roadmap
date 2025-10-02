@@ -1,30 +1,38 @@
 # Go-Kafka-Learning-Documentation-Roadmap
 
-First install Docker, then pull image for confluent-kafka :
 
+## First install Docker, then pull image for confluent-kafka :
+
+```bash
   docker pull confluentinc/cp-kafka:latest
 
-  OR
+  # or
 
   brew install confluentinc/tap/cli
+```
 
+### To run kafka locally:
 
-
-to run kafka locally use :
-
+```bash
   confluent local kafka start
 
 
-
-Or if you want start kafka on a specific local port:
-
+# if you want start kafka on a specific local port:
   confluent local kafka start --plaintext-ports 9093
 
-to stop :
 
+# to stop :
   confluent local kafka stop
 
 
-Getting Started:
+# to run kafka locally use :
+  confluent local kafka
 
-  Hello_kafka:
+```
+
+
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
