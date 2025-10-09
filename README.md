@@ -1,10 +1,8 @@
 # Go-Kafka-Learning-Documentation-Roadmap
 
 <p align="center">
-  <img src="assets/main.png" alt="Go-Kafka Event Streaming" width="500">
+  <img src="assets/main.png" alt="Go-Kafka Event Streaming" width="1000">
 </p>
-
-
 
 
 ## First install Docker, then pull image for confluent-kafka :

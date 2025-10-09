@@ -8,3 +8,6 @@
 2. Transformation: enrich a message before writing to another topic.
 
 3. Fan-out: one topic feeding multiple downstream consumers.
+
+
+We are going to implement a real world use case Online Banking Trasaction processing
