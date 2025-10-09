@@ -3,16 +3,16 @@
 <p align="center" style="
   background-color: white;
   border-radius: 12px;
-  padding: 20px 40px;
-  display: inline-block;
+  padding: 30px 60px;
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
   box-shadow: 0 0 10px rgba(0,0,0,0.08);
 ">
-  <img src="assets/golang.svg" alt="Golang" style="width:150px; margin-right:20px;">
-  <img src="assets/live.svg" alt="Event Stream" style="width:50px; margin-right:20px;">
+  <img src="assets/golang.svg" alt="Golang" style="width:150px;">
+  <img src="assets/live.svg" alt="Event Stream" style="width:50px;">
   <img src="assets/kafka.svg" alt="Kafka" style="width:150px;">
 </p>
-
-<h1 align="center">Go-Kafka Learning Documentation Roadmap</h1>
 
 
 
